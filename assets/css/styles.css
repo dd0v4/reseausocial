@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    justify-content: center;
+    font-family: helvetica;
+}
+
+.formgroup{
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    gap: 10px;
+}
+
+.formgroup input{
+    padding: 10px;
+}
+.container{
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error{
+    color: red;
+    width: 100%;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post{
+    margin: 10px;
+    width: 100vw;
+    padding: 10px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
