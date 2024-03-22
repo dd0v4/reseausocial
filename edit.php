@@ -9,8 +9,11 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     header('Location: login.php');
     exit();
 }
+// Si notre utilisateur n'est pas connecté, on le redirige vers login
 
 $username = $_SESSION["connectedAs"];
+// On crée une variable username avec la valeur stockée dans la session
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
@@ -26,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Error";
     }
 }
+// On utilise notre classe Post pour edit notre post
 
 try {
     $post_id = $_GET["id"];
@@ -38,7 +42,7 @@ try {
 } catch (PDOException $e) {
     $error = $e->getMessage();
 }
-
+// On selectionne le post avec l'id passé dans les paramètres de l'URL et ses valeurs pour l'afficher de sorte  à ce qu'on puisse le modifier
 ?>
 <head>
     <link rel="stylesheet" href="./assets/css/styles.css">

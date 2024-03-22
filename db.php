@@ -17,4 +17,5 @@ try {
 } catch (PDOException $e) {
     die("Error : " . $e->getMessage());
 }
-?>
+
+// On se connecte à notre base de donnée avec ses informations stockées dans notre .env 

@@ -9,8 +9,11 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     header('Location: login.php');
     exit();
 }
+// Si notre utilisateur n'est pas connecté, on le redirige vers login
 
 $username = $_SESSION["connectedAs"];
+
+// On crée une variable username avec la valeur stockée dans la session
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST["title"];
@@ -25,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Error";
     }
 }
+// On crée un objet de classe Post pour créer un post
 try{
     $query = $pdo->prepare("SELECT * FROM posts WHERE author = :author");
     $query->execute([
@@ -34,7 +38,7 @@ try{
 }catch(PDOException $e){
     $error = $e->getMessage();
 }
-
+// On prend tous nos posts dans la base de donnée de l'utilisateur connecté
 ?>
 <head>
     <link rel="stylesheet" href="./assets/css/styles.css">

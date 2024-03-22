@@ -1,4 +1,5 @@
 <?php
+
 class Post {
     private $pdo;
 
@@ -14,6 +15,7 @@ class Post {
 
         return $statement->execute();
     }
+    // Fonction pour sauvegarder notre poste et donc le poster
 
     public function updatePost($id, $title, $content, $author) {
         $statement = $this->pdo->prepare("UPDATE posts SET title = :title, content = :content WHERE id = :id AND author = :author");
@@ -24,6 +26,7 @@ class Post {
 
         return $statement->execute();
     }
+    // Fonction pour mettre notre post à jour
 
     public function deletePost($id, $author) {
         $statement = $this->pdo->prepare("DELETE FROM posts WHERE id = :id AND author = :author");
@@ -33,3 +36,4 @@ class Post {
         return $statement->execute();
     }
 }
+    // Fonction pour supprimer notre post

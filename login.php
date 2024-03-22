@@ -17,6 +17,7 @@ function verify($pdo, $username, $password, $passwordHash){
     }
     return true; 
 }
+// Fonction pour hash l'input utilisateur pour vérifier si le hash de son mot de passe correspond dans la DB, et pour vérifier son pseudo
 
 try {
     if(isset($_POST["username"], $_POST["password"])){
@@ -38,10 +39,12 @@ try {
         } else {
             $error = $verificationResult;
         }
+        //On utilise notre fonction verify pour verifier et si c'est bon, on ajoute dans la session la propriété connected et connected as
     }
 } catch(PDOException $e) {
     $error = "Database error: " . $e->getMessage();
 }
+    // Si erreur, on la stocke
 ?>
 
 <head>

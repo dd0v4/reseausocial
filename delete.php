@@ -8,7 +8,11 @@ if (!isset($_SESSION["connected"]) || !$_SESSION["connected"]) {
     exit();
 }
 
+// Si notre utilisateur n'est pas connecté, on le redirige vers login
+
 $username = $_SESSION["connectedAs"];
+// On crée une variable username avec la valeur stockée dans la session
+
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $id = $_GET["id"];
@@ -25,5 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $error = "Invalid request";
 }
 
+// On utilise la méthode pour supprimer un post dans notre classe Post
 echo $error; 
 ?>
